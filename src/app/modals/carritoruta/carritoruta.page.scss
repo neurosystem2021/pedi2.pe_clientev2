@@ -1,0 +1,46 @@
+.botonRealizar {
+    --background: #F0C911;
+    font-weight: bold;
+}
+
+ion-img {
+    border: 0.5px solid gray;
+    border-radius: 10% !important;
+    overflow: hidden;
+}
+
+.contenedorCentroGrid{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+.contenedorFlex{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorIzq{
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+.contenedorDer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+.unaLinea{
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    display: -webkit-box; -webkit-line-clamp: 1;
+    line-height: 16px; max-height: 32px; -webkit-box-orient: vertical
+}
+
+* {
+  font-family: Gilroy-Regular;
+}

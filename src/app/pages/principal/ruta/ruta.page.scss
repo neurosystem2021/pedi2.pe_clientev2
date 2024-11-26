@@ -1,0 +1,63 @@
+#mapidd{
+    height: 100vh;
+}
+
+
+.cupertino-pane {
+  margin: 20px;
+}
+ion-icon{
+  //background:#f6f6f6;
+  //height: 25px;
+  //width: 25px;
+  //border-radius: 10px;
+ // padding:5px 5px;
+}
+.selectEstados{
+  border: 2px solid #000;
+  border-radius: 15px;
+}
+
+.destroy-button{
+  display: none !important;
+}
+
+.infoButton , .chatButton{
+  --background: #f6f6f6;
+  color: #000;
+  --border-radius: 10px;
+  ion-icon{
+    background:transparent;
+  }
+}
+
+.flexCenterCol{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flexCenter{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.flexCenterDer{
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.activo{
+  background: #F0C911;
+  border: 2px solid #EBA007;
+  color: white;
+  ion-icon{
+      --background: white;
+  } 
+}
+.inactivo{
+  border: 2px solid grey;
+}

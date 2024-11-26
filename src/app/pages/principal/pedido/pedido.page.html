@@ -1,0 +1,173 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #1B1464;font-weight: 700; color:white;">
+    <ion-buttons slot="start">
+      <ion-button (click)="cargarIni()">
+        <ion-icon style="font-weight: bold; color: white;" slot="icon-only" name="refresh-sharp"></ion-icon>
+      </ion-button>
+      <ion-badge  *ngIf="solicitudes.length>0" color="success" style="margin-left: -10px;">
+        {{solicitudes.length}}
+      </ion-badge>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      <ion-label style="font-style: italic; font-weight: bold; color:white; font-size: 1.1rem;">
+        Bienvenido Repartidor
+      </ion-label>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button style="font-weight: bold; color: white;"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: #E5E5E5">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-label style="font-size:1.1rem; font-weight: bold;">Mis Empresas:</ion-label>
+      </ion-col>
+    </ion-row>
+    
+    <div *ngFor="let empresa of EmpresasMotorizado">
+      <ion-item-divider class="contenedorBack">
+        <img style="width: 50px; margin-bottom: 5px;" src="{{empresa.ImagenUrlCom}}">
+        <ion-label style="margin-left: 5px;"><span style="color: black; font-weight: bold;"> {{empresa.RazonSocial}}</span></ion-label>
+      </ion-item-divider>
+      <ion-row>
+        <ion-col size="12">
+          <ion-row *ngIf="filtro(empresa.IdEmpresa).length==0">
+            <ion-col size="12">
+              <ion-label>No tiene solicitudes de viaje en esta empresa.</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-card style="margin-left: 2px !important;
+          margin-right: 2px !important; margin-bottom: 2px !important;"  *ngFor="let solicitud  of filtro(empresa.IdEmpresa)">
+          <ion-row>
+            <ion-col size="2" class="contenedorFlex">
+              <ion-icon style="font-size: 1.7rem; color:#1B1464;" name="bicycle-sharp"></ion-icon>
+            </ion-col>
+            <ion-col size="10">
+              <ion-text color="dark" style="font-weight: bold;">
+                {{solicitud.Direccion}}
+              </ion-text>
+              <br>
+              <ion-text color="primary" style="font-size: 0.8rem;">
+                {{solicitud.Referencia}}
+              </ion-text>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row style="border-top: 1px solid #E4E4E4; border-bottom: 1px solid #E4E4E4;">
+            <ion-col size="2" class="contenedorFlex">
+              <ion-icon style="font-size: 1.7rem; color:#1B1464;" name="receipt-sharp"></ion-icon>
+            </ion-col>
+            <ion-col size="3">
+              <ion-label style="font-size: 0.7rem; color: black;">Orden ID</ion-label>
+              <br>
+              <ion-label style="font-size: 0.9rem; font-weight: bold; color: black;">{{solicitud.IdPedido}}</ion-label>
+            </ion-col>
+            <ion-col size="2" class="contenedorFlex">
+              <ion-icon style="font-size: 1.7rem; color:#1B1464;" name="calendar-sharp"></ion-icon>
+            </ion-col>
+            <ion-col size="5">
+              <ion-label style="font-size: 0.7rem;  color: black;">Fecha - Hora</ion-label>
+              <br>
+              <ion-label style="font-size: 0.9rem; font-weight: bold; color: black;">{{solicitud.FechaRegFormat  | date:'dd/MM/yy h:mm a'}}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-button (click)="iniciarViaje(solicitud.IdCliente,solicitud.IdPedido,solicitud.IdRegion)" expand="block" style="--background: #1D9828;">
+                INICIAR
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>  
+      </div>
+      <ion-row  *ngIf="EmpresasMotorizado.length == 0">
+        <ion-col size="12" class="ion-text-center">
+          <ion-label>No tiene empresas asignadas</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider class="contenedorBack">
+      </ion-item-divider>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label style="font-size:1.1rem; font-weight: bold;">Solicitudes adicionales:</ion-label>
+        </ion-col>
+      </ion-row>
+      <div *ngFor="let empresa of EmpresasMotorizadoAdicionales">
+        <ion-item-divider class="contenedorBack">
+          <img style="width: 50px; margin-bottom: 5px;" src="{{empresa.ImagenUrl}}">
+          <ion-label style="margin-left: 5px;"><span style="color: black; font-weight: bold;"> {{empresa.RazonSocial}}</span></ion-label>
+        </ion-item-divider>
+        <ion-row>
+          <ion-col size="12">
+            <ion-row *ngIf="filtro(empresa.IdEmpresa).length==0">
+              <ion-col size="12">
+                <ion-label>No tiene solicitudes de viaje en esta empresa.</ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-card style="margin-left: 2px !important;
+            margin-right: 2px !important; margin-bottom: 2px !important;"  *ngFor="let solicitud  of filtro(empresa.IdEmpresa)">
+            <ion-row>
+              <ion-col size="2" class="contenedorFlex">
+                <ion-icon style="font-size: 1.7rem; color:#1B1464;" name="bicycle-sharp"></ion-icon>
+              </ion-col>
+              <ion-col size="10">
+                <ion-text color="dark" style="font-weight: bold;">
+                  {{solicitud.Direccion}}
+                </ion-text>
+                <br>
+                <ion-text color="primary" style="font-size: 0.8rem;">
+                  {{solicitud.Referencia}}
+                </ion-text>
+              </ion-col>
+            </ion-row>
+    
+            <ion-row style="border-top: 1px solid #E4E4E4; border-bottom: 1px solid #E4E4E4;">
+              <ion-col size="2" class="contenedorFlex">
+                <ion-icon style="font-size: 1.7rem; color:#1B1464;" name="receipt-sharp"></ion-icon>
+              </ion-col>
+              <ion-col size="3">
+                <ion-label style="font-size: 0.7rem; color: black;">Orden ID</ion-label>
+                <br>
+                <ion-label style="font-size: 0.9rem; font-weight: bold; color: black;">{{solicitud.IdPedido}}</ion-label>
+              </ion-col>
+              <ion-col size="2" class="contenedorFlex">
+                <ion-icon style="font-size: 1.7rem; color:#1B1464;" name="calendar-sharp"></ion-icon>
+              </ion-col>
+              <ion-col size="5">
+                <ion-label style="font-size: 0.7rem;  color: black;">Fecha - Hora</ion-label>
+                <br>
+                <ion-label style="font-size: 0.9rem; font-weight: bold; color: black;">{{solicitud.FechaRegFormat  | date:'dd/MM/yy h:mm a'}}</ion-label>
+              </ion-col>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col size="12">
+                <ion-button (click)="iniciarViaje(solicitud.IdCliente,solicitud.IdPedido,solicitud.IdRegion)" expand="block" style="--background: #1D9828;">
+                  INICIAR
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            </ion-card>
+          </ion-col>
+        </ion-row>  
+        </div>
+        <ion-row  *ngIf="EmpresasMotorizadoAdicionales.length == 0">
+          <ion-col size="12" class="ion-text-center">
+            <ion-label>No tiene solicitudes adicionales</ion-label>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar style="--background: #E5E5E5;">
+    <ion-button (click)="cargarIni()" expand="block" color="primary">
+      ACTUALIZAR
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

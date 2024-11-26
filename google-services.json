@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "862179175440",
+    "project_id": "pedi2-282216",
+    "storage_bucket": "pedi2-282216.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862179175440:android:50fe5c6ae16f83347c6e95",
+        "android_client_info": {
+          "package_name": "io.neurosoft.pedi2.repartidor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862179175440-od0p3d3up4qtg770467mo3jruel4co98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWcoLlHC7RaTDxfAwr8GMXXoSJZqjcrJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862179175440-od0p3d3up4qtg770467mo3jruel4co98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862179175440:android:dff0ea2b218404657c6e95",
+        "android_client_info": {
+          "package_name": "io.neurosoft.pedi2.repartidor.repartidor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862179175440-od0p3d3up4qtg770467mo3jruel4co98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWcoLlHC7RaTDxfAwr8GMXXoSJZqjcrJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862179175440-od0p3d3up4qtg770467mo3jruel4co98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862179175440:android:50fe5c6ae16f83347c6e95",
+        "android_client_info": {
+          "package_name": "capacitor.cordova.android.plugins"
+        }
+      },
+      
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWcoLlHC7RaTDxfAwr8GMXXoSJZqjcrJU"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}

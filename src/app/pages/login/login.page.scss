@@ -1,0 +1,30 @@
+
+ion-item.item-has-focus > ion-label{
+    color:  #2a062c  !important;
+    --highlight-background: transparent;
+}
+
+ion-card {
+    border-radius: 25px;
+  }
+
+  ion-input {
+    margin-top: 8px;
+    --background: #eae9ea;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .botonIniciarSesion {
+    --background: #1B1464;
+    width: 62vw;
+    margin-top: 8px;
+    --border-radius: 50px;
+    font-weight: bold;
+  }
+
+  .iconLogin{
+    color:#1B1464;
+    font-size: 1.2rem;
+  }

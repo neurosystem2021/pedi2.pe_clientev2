@@ -1,0 +1,176 @@
+<ion-header class="ion-no-border contenedorBack" >
+  <ion-toolbar class="contenedorBack">
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon style="font-weight: bold; color: black;" slot="icon-only" name="close-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="color:black; font-weight: bold; font-family: Gilroy-Regular; text-transform: capitalize;">
+      Pedido del Cliente
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon style="font-weight: bold; color: black;"  name="help-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="contenedorBack">
+  <ion-item-divider class="contenedorBack">
+    <ion-icon name="calendar-sharp" style="color:#1B1464;"></ion-icon>
+    <ion-label style="margin-left: 5px;"><span style="color: black;">Fecha y Hora del Pedido:</span></ion-label>
+  </ion-item-divider>
+
+  <ion-row style="padding-left: 4px; padding-right: 4px;">
+    <ion-col size="12">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="contenedorBack">
+            <ion-label style="font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">{{FechaReg | date:'dd/MM/yy h:mm a'}}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row> 
+    </ion-col>
+  </ion-row>
+
+  <ion-item-divider class="contenedorBack">
+    <ion-icon name="person-sharp" style="color:#1B1464;"></ion-icon>
+    <ion-label style="margin-left: 5px;"><span style="color: black;">Cliente:</span></ion-label>
+  </ion-item-divider>
+
+  <ion-row style="padding-left: 4px; padding-right: 4px;">
+    <ion-col size="12">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="contenedorBack">
+            <ion-label style="font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">{{Cliente}}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row> 
+    </ion-col>
+  </ion-row>
+
+  <ion-item-divider class="contenedorBack">
+    <ion-icon name="location-sharp" style="color:#1B1464"></ion-icon>
+    <ion-label style="margin-left: 5px;"><span style="color: black;">Se entregará en:</span></ion-label>
+  </ion-item-divider>
+
+  <ion-row style="padding-left: 4px; padding-right: 4px;">
+    <ion-col size="12">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="contenedorBack">
+            <ion-text style="font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">
+              Direccion: <span style="color:#1B1464">{{Direccion}}</span> 
+            </ion-text>
+          </ion-item>
+          <ion-item class="contenedorBack">
+            <ion-text style="font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">
+              Referencia: <span style="color:#1B1464">{{Referencia}}</span> 
+            </ion-text>
+          </ion-item>
+        </ion-col>
+      </ion-row> 
+    </ion-col>
+  </ion-row>
+
+  <ion-item-divider class="contenedorBack">
+    <ion-icon name="business-sharp" style="color:#1B1464;"></ion-icon>
+    <ion-label style="margin-left: 5px;"><span style="color: black;">Pedido a:</span></ion-label>
+  </ion-item-divider>
+
+  <ion-row style="padding-left: 4px; padding-right: 4px;">
+    <ion-col size="12">
+      <ion-row>
+        <ion-col size="2" class="contenedorFlex">
+          <img class="imageEmpresa"  src="{{EmpresaImagenUrl}}">
+        </ion-col>
+        <ion-col size="10" class="contenedorIzq">
+          <ion-label style="font-weight: bold; font-size: 1rem;">{{EmpresaRazonSocial}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-item-divider class="contenedorBack">
+    <ion-icon name="cart-sharp" style="color:#1B1464;"></ion-icon>
+    <ion-label style="margin-left: 5px;"><span style="color: black;">Productos:</span></ion-label>
+  </ion-item-divider>
+
+  <ion-row style="padding-left: 4px; padding-right: 4px;">
+    <ion-col size="12">
+      <ion-row *ngFor="let detalle of DetallePedido">
+        <ion-col size="2" class="contenedorFlex" >
+          <ion-label style="color:#1B1464; font-weight: bold; font-size: 1rem;">{{detalle.Cantidad}}</ion-label>
+        </ion-col>
+        <ion-col size="7" class="contenedorIzq">
+          <ion-label style="font-size: 0.85rem; font-weight: bold;">{{detalle.Producto}}</ion-label>
+        </ion-col>
+        <ion-col size="3" class="contenedorFlex">
+          <ion-label style="font-weight: bold; font-size: 0.85rem; color: black;">{{(detalle.Precio * detalle.Cantidad) | currency:'PEN':'S/ ':'1.2-2' }}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-item-divider class="contenedorBack">
+    <ion-icon name="bicycle-sharp" style="color:#1B1464;"></ion-icon>
+    <ion-label style="margin-left: 5px;"><span style="color: black;">Delivery: </span></ion-label>
+  </ion-item-divider>
+
+  <ion-row style="padding-left: 4px; padding-right: 4px;">
+    <ion-col size="12">
+      <ion-row>
+        <ion-col size="2" class="contenedorFlex">
+        </ion-col>
+        <ion-col size="7" class="contenedorIzq">
+          <ion-label style="font-size: 0.85rem; font-weight: bold;">PRECIO DE ENVÍO </ion-label>
+        </ion-col>
+        <ion-col size="3" class="contenedorFlex">
+          <ion-label style="font-weight: bold; font-size: 0.85rem; color: black;">{{ PrecioDelivery  | currency:'PEN':'S/ ':'1.2-2' }}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="height: 1vh;"></ion-row>
+  <ion-item-divider class="contenedorBack">
+    <ion-icon name="card-sharp" style="color:#1B1464;"></ion-icon>
+    <ion-label style="margin-left: 5px;"><span style="color: black;">Metodo de pago:</span></ion-label>   
+  </ion-item-divider>
+
+  <ion-row style="padding: 0 0 0 13px;">
+    <ion-col size="12" class="contenedorFlex">
+      <ion-label style="font-weight: bold;">{{MetodoPago}}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="Cambio > 0 && Cambio!=(PrecioDelivery + PrecioProductos)" style="margin-top: -10px;">
+    <ion-col size="12">
+      <ion-row>
+        <ion-col size="2" class="contenedorFlex">
+        </ion-col>
+        <ion-col size="7" class="contenedorDer">
+          <ion-label style="font-size: 0.85rem; font-weight: bold;">VUELTO:</ion-label>
+        </ion-col>
+        <ion-col size="3" class="contenedorFlex">
+          <ion-label style="font-weight: bold; font-size: 0.85rem; color: black;">{{ ( Cambio - (PrecioDelivery + PrecioProductos))  | currency:'PEN':'S/ ':'1.2-2' }}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="height: 1vh;"></ion-row>
+</ion-content>
+
+<ion-footer class="ion-no-border" style="background: #36CD7A;">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-label style="color:white;font-weight: bold;">TOTAL A COBRAR: {{ PrecioDelivery + PrecioProductos | currency:'PEN':'S/ ':'1.2-2'}}
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

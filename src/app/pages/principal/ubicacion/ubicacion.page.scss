@@ -1,0 +1,22 @@
+#mapid{
+    height: 100vh;
+}
+.infoButton{
+    --background: #f6f6f6;
+    color: #000;
+    --border-radius: 10px;
+    ion-icon{
+      background:transparent;
+    }
+}
+
+.btnAceptar, .btnRechazar{
+    --border-radius: 10px;
+    font-weight: 600;
+}
+.btnAceptar{
+    --background: #01cc7b;
+}
+.btnRechazar{
+    --background: #f64150;
+}

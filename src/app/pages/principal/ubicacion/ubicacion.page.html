@@ -1,0 +1,62 @@
+<ion-content>
+  <div id="mapid">
+  </div>
+
+  <div class="cupertino-pane">
+    <ion-title lines="none" class="ion-text-center" style="color:#000;font-size: 26px;font-weight: 600;">Pedido</ion-title>
+    <ion-item-divider></ion-item-divider>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button disabled="{{botonAceptar}}" class="btnAceptar" (click)="aceptar()" expand="block">Aceptar</ion-button>
+        </ion-col>
+        <ion-col size="12">
+          <ion-button disabled="{{botonRechazar}}" class="btnRechazar"  expand="block">Rechazar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item lines="none">
+      <ion-icon style="color:#000;" slot="start" name="location"></ion-icon>
+      <ion-text style="color:#000;font-weight: 500;font-size: 0.7rem;">
+        {{direccion}}
+      </ion-text>
+    </ion-item>
+    
+    <ion-item lines="none">
+      <ion-icon style="color:#000;" slot="start"  name="bulb"></ion-icon>
+      <ion-text style="color:#000;; font-weight: 500; font-size: 0.7rem;">
+        {{ubicacionReferencia}}
+      </ion-text>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label class="ion-text-start" style="color:#000;font-size: 1rem; font-weight: 600">
+        Total:
+      </ion-label>
+      <ion-label class="ion-text-end" style="color:#000;font-size: 1rem;font-weight: 500">
+        S/.{{precioTotal | number: '1.2-2'}}
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label class="ion-text-start" style="color:#000;font-size: 1rem;font-weight: 600">
+        Delivery:
+      </ion-label>
+      <ion-label class="ion-text-end" style="color:#000;font-size: 1rem;font-weight: 500">
+        S/.{{precioDelivery | number: '1.2-2'}}
+      </ion-label>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button disabled="{{botonInfo}}" (click)="presentModal()" class="infoButton" expand="block">
+            <ion-icon slot="start" name="information-circle"></ion-icon>
+            Info
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
